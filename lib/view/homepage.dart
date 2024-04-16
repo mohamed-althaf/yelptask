@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yelptask/view/business_details.dart';
 import 'package:yelptask/view_model/business_viewmodel.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         body: FutureBuilder(
-          // future: _businessViewModel.fetchBusinessData(),
+          future: _businessViewModel.fetchBusinessData(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child: CircularProgressIndicator.adaptive());
@@ -46,6 +47,13 @@ class _HomePageState extends State<HomePage> {
                           .toString(),
                       style: const TextStyle(fontSize: 10),
                     ),
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BusinessDetails(
+                              business:
+                                  _businessViewModel.businessListData[index]),
+                        )),
                   ),
                 );
               },

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -10,7 +9,7 @@ class BusinessSerivce {
 
   final _dio = Dio();
 
-  Future<dynamic> get(String url) async {
+  Future<dynamic> get() async {
     dynamic responseJson;
 
     try {
@@ -19,7 +18,7 @@ class BusinessSerivce {
             method: "GET",
             headers: {"Authorization": yelpToken, "Accept": 'application/json'},
           ));
-      responseJson = jsonDecode(response.data);
+      responseJson = response.data;
     } on SocketException {
       throw DioException.connectionError(
           requestOptions: RequestOptions(), reason: "No Internet Connection");

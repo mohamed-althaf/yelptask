@@ -48,12 +48,13 @@ class _HomePageState extends State<HomePage> {
                       style: const TextStyle(fontSize: 10),
                     ),
                     onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BusinessDetails(
-                              business:
-                                  _businessViewModel.businessListData[index]),
-                        )),
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BusinessDetails(
+                          business: _businessViewModel.businessListData[index],
+                        ),
+                      ),
+                    ),
                   ),
                 );
               },

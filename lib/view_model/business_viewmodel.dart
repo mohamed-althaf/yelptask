@@ -9,7 +9,7 @@ class BusinessViewModel {
   List<Business> get businessListData => _businessList;
 
   Future<bool> fetchBusinessData() async {
-    List<Business> businessList = await _businessModel.fetchMediaList();
+    List<Business> businessList = await _businessModel.fetchBusinessList();
     _businessList = businessList;
     return true;
   }

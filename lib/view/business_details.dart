@@ -23,12 +23,12 @@ class BusinessDetails extends StatelessWidget {
               alignment: Alignment.center,
               width: MediaQuery.of(context).size.width * 0.8,
               child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    business.image_url,
-                    cacheWidth:
-                        (MediaQuery.of(context).size.width * 0.8).toInt(),
-                  )),
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  business.image_url,
+                  cacheWidth: (MediaQuery.of(context).size.width * 0.8).toInt(),
+                ),
+              ),
             ),
             const SizedBox(height: 12),
             ListTile(
@@ -56,7 +56,7 @@ class BusinessDetails extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.near_me, color: Colors.deepPurple),
-              title: Text(business.location.display_address.join()),
+              title: Text(business.location.display_address.join(" ")),
             ),
           ],
         ),
